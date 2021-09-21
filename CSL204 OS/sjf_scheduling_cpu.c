@@ -12,12 +12,12 @@ int main() {
     printf("\nEnter number of processes: ");
     scanf("%d", & n);
 
-    printf("\nEnter the arrival time of process: ", p[i]);
+    printf("\nEnter the arrival time of process: ");
     for (i = 0; i < n; i++) {
         p[i] = i + 1;
         scanf(" %d", & at[i]);
     }
-    printf("\nEnter the burst time of process: ", p[i]);
+    printf("\nEnter the burst time of process: ");
     for (i = 0; i < n; i++) {
         scanf(" %d", & bt[i]);
     }
