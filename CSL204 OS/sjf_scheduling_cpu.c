@@ -60,7 +60,7 @@ int main() {
 
     printf("\nProcess\t Arrival Time\t Burst Time\t Waiting Time\t Turnaround Time");
     for (i = 0; i < n; i++) {
-        p[i]=i+1;
+        // p[i]=i+1;
         printf("\n p%d\t %d\t\t %d\t\t %d\t\t %d", p[i], at[i], bt[i], wt[i], tat[i]);
     }
 
