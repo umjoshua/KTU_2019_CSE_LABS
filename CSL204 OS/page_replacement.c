@@ -13,7 +13,7 @@ void getData() {
 void initialize() {
     pgfaultcnt = 0;
     for (i = 0; i < nf; i++)
-        p[i] = -1;
+        p[i] = 9999;
 }
 int isHit(int data) {
     hit = 0;
@@ -64,7 +64,7 @@ void optimal() {
     int near[50];
     for (i = 0; i < n; i++) {
         printf("\nFor %d :", data[i]);
-        if (isHit( data[i]) == 0) {
+        if (isHit(data[i]) == 0) {
             for (j = 0; j < nf; j++) {
                 int pg = p[j];
                 int found = 0;
@@ -77,9 +77,9 @@ void optimal() {
                         found = 0;
                 }
                 if (!found)
-                    near[j] = -1;
+                    near[j] = 9999;
             }
-            int max = -1;
+            int max = -9999;
             int repindex;
             for (j = 0; j < nf; j++) {
                 if (near[j] > max) {
@@ -113,9 +113,9 @@ void lru() {
                         found = 0;
                 }
                 if (!found)
-                    least[j] = -1;
+                    least[j] = -9999;
             }
-            int min = -1;
+            int min = 9999;
             int repindex;
             for (j = 0; j < nf; j++) {
                 if (least[j] < min) {
