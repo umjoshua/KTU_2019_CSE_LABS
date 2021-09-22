@@ -37,7 +37,7 @@ int getHitIndex(int data) {
 }
 void dispPages() {
     for (k = 0; k < nf; k++) {
-        if (p[k] != -1)
+        if (p[k] != 9999)
             printf(" %d", p[k]);
     }
 }
