@@ -29,17 +29,22 @@ int main() {
             break;
         }
     }
+    printf("%d",initial);
     for (i = index; i < n; i++) {
         TotalHeadMoment = TotalHeadMoment + abs(RQ[i] - initial);
+        printf(" -> %d", RQ[i]);
         initial = RQ[i];
     }
-    TotalHeadMoment = TotalHeadMoment + abs(size - RQ[i - 1]);
+    TotalHeadMoment = TotalHeadMoment + abs(size - RQ[i - 1] - 1);
     TotalHeadMoment = TotalHeadMoment + abs(size - 1);
     initial = 0;
+    printf("-> %d",size-1);
+    printf("-> %d",initial);
     for (i = 0; i < index; i++) {
         TotalHeadMoment = TotalHeadMoment + abs(RQ[i] - initial);
         initial = RQ[i];
+        printf(" -> %d", RQ[i]);
     }
-    printf("Total head movement is %d\n", TotalHeadMoment);
+    printf("\nTotal head movement is %d\n", TotalHeadMoment);
     return 0;
 }
