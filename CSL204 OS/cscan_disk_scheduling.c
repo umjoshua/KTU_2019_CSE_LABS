@@ -40,6 +40,6 @@ int main() {
         TotalHeadMoment = TotalHeadMoment + abs(RQ[i] - initial);
         initial = RQ[i];
     }
-    printf("Total head movement is %d", TotalHeadMoment);
+    printf("Total head movement is %d\n", TotalHeadMoment);
     return 0;
 }
