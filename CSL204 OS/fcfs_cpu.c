@@ -45,7 +45,7 @@ void calculate_fcfs(int n){
                 process[i].completion=process[i].arrival+process[i].burst;
         }
         else{
-            if(is_available(i,(process[i-1].completion+1))==1)
+            if(is_available(i,(process[i-1].completion))==1)
                 process[i].completion=process[i-1].completion+process[i].burst;
             else{
                 process[i].completion=process[i].arrival+process[i].burst;
