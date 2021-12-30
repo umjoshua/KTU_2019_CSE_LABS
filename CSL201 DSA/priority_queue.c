@@ -9,55 +9,47 @@ struct pqueue {
     int data;
     int priority;
 }
-pq[MAX], flag;
+priorityque[MAX];
 
-void sort();
-void display();
-
-void enQueue() {
-    int n, p;
+void enQueue(int item, int priority) {
+    int i;
     if (front == 0 && rear == MAX - 1) {
         printf("\nQueue overflow!\n");
         return;
     }
     if (front == -1)
         front = 0;
+    i=rear;
     rear++;
-    printf("Enter the number and priority: ");
-    scanf("%d %d", & n, & p);
-    pq[rear].data = n;
-    pq[rear].priority = p;
-    sort();
+
+    while((priorityque[i].priority<=priority) && (i>=0)){
+        priorityque[i+1].data = priorityque[i].data;
+        priorityque[i+1].priority = priorityque[i].priority;
+        i--;
+    }
+    priorityque[i+1].data = item;
+    priorityque[i+1].priority = priority;
 }
-void sort() {
-    int i, j;
-    for (i = front; i <= rear - 1; i++)
-        for (j = front; j <= rear - 1 - (i - front); j++)
-            if (pq[j].priority > pq[j + 1].priority) {
-                flag = pq[j];
-                pq[j] = pq[j + 1];
-                pq[j + 1] = flag;
-            }
-}
+
 void deQueue() {
     if (front == -1 || front > rear) {
         printf("\nQueue underflow!\n");
         return;
     }
-    printf("\nDeleted element : %d | priority: %d\n", pq[front].priority, pq[front].data);
+    printf("\nDeleted element : %d | priority: %d\n", priorityque[front].priority, priorityque[front].data);
     front++;
-    sort();
-    display();
 }
+
 void display() {
     int i;
     printf("\nThe queue is:\n");
     printf("\nPriority Data\n");
     for(i=front;i<=rear;i++){
-        printf("  %d\t  %d\n",pq[i].priority,pq[i].data);
+        printf("  %d\t  %d\n",priorityque[i].priority,priorityque[i].data);
     }
     printf("\n");
 }
+
 
 void main() {
     int choice;
@@ -66,12 +58,15 @@ void main() {
         printf("\n1. Enqueue 2. Dequeue 3. Display 4.Exit\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice) {
-            case 1:
-                enQueue();
+            case 1:int item, pri;
+                printf("Enter data: "); scanf("%d",&item);
+                printf("Enter priority: "); scanf("%d",&pri);
+                enQueue(item,pri);
                 display();
                 break;
             case 2:
                 deQueue();
+                display();
                 break;
             case 3:
                 display();
